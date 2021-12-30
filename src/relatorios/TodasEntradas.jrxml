@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Todas as Entradas" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d024ff1d-3270-4849-b203-d0f3139bce0f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     entrada.`identrada` AS entrada_identrada,
+     entrada.`datarec` AS entrada_datarec,
+     entrada.`lotefor` AS entrada_lotefor,
+     entrada.`validade` AS entrada_validade,
+     entrada.`produto` AS entrada_produto,
+     entrada.`quantidade` AS entrada_quantidade,
+     entrada.`fornecedor` AS entrada_fornecedor,
+     entrada.`usuario` AS entrada_usuario,
+     entrada.`coderp` AS entrada_coderp,
+     entrada.`marca` AS entrada_marca
+FROM
+     `entrada` entrada]]>
+	</queryString>
+	<field name="entrada_identrada" class="java.lang.Integer"/>
+	<field name="entrada_datarec" class="java.sql.Date"/>
+	<field name="entrada_lotefor" class="java.lang.String"/>
+	<field name="entrada_validade" class="java.sql.Date"/>
+	<field name="entrada_produto" class="java.lang.String"/>
+	<field name="entrada_quantidade" class="java.lang.Integer"/>
+	<field name="entrada_fornecedor" class="java.lang.String"/>
+	<field name="entrada_usuario" class="java.lang.String"/>
+	<field name="entrada_coderp" class="java.lang.String"/>
+	<field name="entrada_marca" class="java.lang.String"/>
+	<group name="entrada_datarec">
+		<groupExpression><![CDATA[$F{entrada_datarec}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="67" height="58" uuid="217daaef-a2f4-4bea-97a2-b735f7cc4381"/>
+				<imageExpression><![CDATA["Z:\\RRI\\RRI - NEW - 2020\\Projeto_RRI\\src\\viewImagens\\Flora_azul_1.jpg"]]></imageExpression>
+			</image>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="f9963df2-c588-4a5b-993b-cf04faeb0c34"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="147" y="9" width="283" height="49" uuid="0adfa4ff-d38b-435a-a5e6-9dd68ee12c8a"/>
+				<textElement textAlignment="Justified">
+					<font size="28" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Todas as Entradas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="13" width="33" height="20" uuid="a30af7cd-ce0d-4632-84e8-b4a3ea2b8631"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[N°Ent]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="13" width="45" height="20" uuid="6ad468d3-7f92-4bae-a9c5-7564760b2808"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Dt Rec]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="92" y="13" width="39" height="20" uuid="69304ad3-ad3b-4bde-8c2c-f2144b2e6a98"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[LoteFor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="13" width="45" height="20" uuid="df3ad3ac-bb8d-4d19-98f2-bebc9b344e04"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Validade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="195" y="13" width="100" height="20" uuid="b541045a-c860-423e-bc5a-35e3278ab91c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Produto Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="305" y="13" width="29" height="20" uuid="c2be4b90-384f-49b1-bf88-60418010a5de"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qtd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="13" width="60" height="20" uuid="a9a64241-868c-455f-af1b-2cfacfba6bf9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fornecedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="412" y="13" width="36" height="20" uuid="5e6df498-0309-400d-8efe-74f5107a4808"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CodErp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="459" y="13" width="39" height="20" uuid="cc2c9841-e557-4626-82a8-04401395fe35"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Marca]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="513" y="13" width="42" height="20" uuid="61cb5b66-8364-4de7-bdaf-dc64481f3170"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Analista]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="33" height="20" uuid="02e1bb98-5aed-4e3a-8831-9dc1666fd277"/>
+				<textFieldExpression><![CDATA[$F{entrada_identrada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="0" width="45" height="20" uuid="3a87c0a8-1cbd-4967-942d-a9d11d31a749"/>
+				<textFieldExpression><![CDATA[$F{entrada_datarec}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="2" width="39" height="20" uuid="42341b71-2a43-430f-95ec-9719bccb4cc4"/>
+				<textFieldExpression><![CDATA[$F{entrada_lotefor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="2" width="45" height="20" uuid="2303e702-4617-4b4d-95d1-5a02370df09f"/>
+				<textFieldExpression><![CDATA[$F{entrada_validade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="196" y="0" width="100" height="20" uuid="2572d99b-f3d5-4fa3-b58d-021b5c5425d3"/>
+				<textFieldExpression><![CDATA[$F{entrada_produto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="309" y="0" width="29" height="20" uuid="121d7724-db2a-42f4-9c2b-a46954d513f3"/>
+				<textFieldExpression><![CDATA[$F{entrada_quantidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="344" y="0" width="60" height="20" uuid="3b91a7ec-3666-4ffc-837d-5be794cb4732"/>
+				<textFieldExpression><![CDATA[$F{entrada_fornecedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="413" y="0" width="36" height="20" uuid="bfd04583-63b7-4027-a293-9fe0cf7714f7"/>
+				<textFieldExpression><![CDATA[$F{entrada_coderp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="461" y="2" width="39" height="20" uuid="de16c7b5-080d-4dbf-b822-b861d92b4fba"/>
+				<textFieldExpression><![CDATA[$F{entrada_marca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="513" y="0" width="42" height="20" uuid="8942536f-cca6-4e2d-98b7-0227d6b5d9bc"/>
+				<textFieldExpression><![CDATA[$F{entrada_usuario}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="41" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="11" width="100" height="20" uuid="ef40ec25-d032-4185-be88-c0ba81dedbbe"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

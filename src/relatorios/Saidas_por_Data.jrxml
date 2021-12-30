@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Saidas_por_Data" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1630dea2-b8c8-4123-a3ba-1887060f3ce6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="datarec" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="datarec2" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     saida.`idsaida` AS saida_idsaida,
+     saida.`dtsaida` AS saida_dtsaida,
+     saida.`idproduto` AS saida_idproduto,
+     saida.`produto` AS saida_produto,
+     saida.`coderp` AS saida_coderp,
+     saida.`est_min` AS saida_est_min,
+     saida.`quantidade` AS saida_quantidade,
+     saida.`usuario` AS saida_usuario,
+     saida.`lotefor` AS saida_lotefor,
+     saida.`validade` AS saida_validade
+FROM
+     `saida` saida
+where saida.`dtsaida` between $P{datarec} and $P{datarec2}]]>
+	</queryString>
+	<field name="saida_idsaida" class="java.lang.Integer"/>
+	<field name="saida_dtsaida" class="java.sql.Date"/>
+	<field name="saida_idproduto" class="java.lang.Integer"/>
+	<field name="saida_produto" class="java.lang.String"/>
+	<field name="saida_coderp" class="java.lang.String"/>
+	<field name="saida_est_min" class="java.lang.Integer"/>
+	<field name="saida_quantidade" class="java.lang.Integer"/>
+	<field name="saida_usuario" class="java.lang.String"/>
+	<field name="saida_lotefor" class="java.lang.String"/>
+	<field name="saida_validade" class="java.sql.Date"/>
+	<group name="saida_dtsaida">
+		<groupExpression><![CDATA[$F{saida_dtsaida}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="67" height="58" uuid="befbee97-80ca-4ddb-8c6f-3146189e707f"/>
+				<imageExpression><![CDATA["Z:\\RRI\\RRI - NEW - 2020\\Projeto_RRI\\src\\viewImagens\\Flora_azul_1.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="169" y="20" width="226" height="38" uuid="9f358ddd-111b-4c77-a1b5-eb7a906c234b"/>
+				<textElement>
+					<font fontName="SansSerif" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Saídas Por DtSaída]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="4063e57a-6135-4b5c-adad-8d030ec0da86"/>
+				<textElement>
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="372" y="1" width="36" height="20" uuid="7bcb765c-9ee0-463d-ad87-648c3649450c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qtd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="495" y="0" width="49" height="20" uuid="31461717-e6c8-466e-85aa-2013aa3fb13f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CodErp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="427" y="0" width="43" height="20" uuid="1c13ada0-1a71-40ae-922b-1a71f7d5e017"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Analista]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="54" y="0" width="44" height="20" uuid="19ac5a4a-b325-41c0-8824-b6f380559b65"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DtSaída]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="244" y="0" width="117" height="20" uuid="3ccc4d9a-a877-4f54-b502-bdd73adcad75"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Produto/Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="173" y="0" width="43" height="20" uuid="dacf87da-4aa4-43e1-90a1-0522bfa768c6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Validade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="31" height="20" uuid="57ab500d-21ec-44a5-90a6-8bac425499a4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Saida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="114" y="0" width="45" height="20" uuid="41526e52-fec1-4ed2-94ce-ebba56d7dd6d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lote]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="173" y="0" width="42" height="20" uuid="3f146a6f-b132-4bbc-b748-ee18a5fb57cb"/>
+				<textFieldExpression><![CDATA[$F{saida_validade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="54" y="0" width="42" height="20" uuid="4e106ba9-6987-4158-a412-200f3cfb671b"/>
+				<textFieldExpression><![CDATA[$F{saida_dtsaida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="0" width="45" height="20" uuid="f2fa52da-f3f6-4899-83ba-7286356ce601"/>
+				<textFieldExpression><![CDATA[$F{saida_lotefor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="496" y="0" width="58" height="20" uuid="9303bf97-9aed-44ed-a159-6a0fae707074"/>
+				<textFieldExpression><![CDATA[$F{saida_coderp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="31" height="20" uuid="5c18a92c-e09b-4c06-9fd7-2f1de824bbef"/>
+				<textFieldExpression><![CDATA[$F{saida_idsaida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="372" y="0" width="36" height="20" uuid="26c04ff9-6164-4167-a20e-4ee5c22448f2"/>
+				<textFieldExpression><![CDATA[$F{saida_quantidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="427" y="0" width="42" height="20" uuid="4a03b467-2e45-4884-b03c-31c81fa00fbc"/>
+				<textFieldExpression><![CDATA[$F{saida_usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="244" y="0" width="100" height="20" uuid="68de4955-5767-40e2-86e4-eeb5e7c600e9"/>
+				<textFieldExpression><![CDATA[$F{saida_produto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="382" y="0" width="100" height="20" uuid="1e034dec-6148-4973-86f7-a8a7a262e1f4"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="495" y="0" width="59" height="20" uuid="ad216143-a402-4b89-ba27-d3fd9ffc21d0"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
