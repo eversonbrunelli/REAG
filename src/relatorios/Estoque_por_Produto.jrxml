@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Estoque_por_Produto" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="40594e2d-8274-40c7-b3c4-700da6cad0ed">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="idproduto" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     estoque.`idproduto` AS estoque_idproduto,
+     estoque.`est_min` AS estoque_est_min,
+     estoque.`est` AS estoque_est,
+     estoque.`lotefor` AS estoque_lotefor,
+     estoque.`validade` AS estoque_validade,
+     produto.`idproduto` AS produto_idproduto,
+     produto.`produto` AS produto_produto,
+     produto.`coderp` AS produto_coderp,
+     produto.`classificacao` AS produto_classificacao,
+     produto.`armazenamento` AS produto_armazenamento,
+     produto.`est_min` AS produto_est_min
+FROM
+     `estoque` estoque,
+     `produto` produto
+where estoque.idproduto = produto.idproduto and estoque.est !=0 and estoque.idproduto =$P{idproduto}
+order by estoque.validade]]>
+	</queryString>
+	<field name="estoque_idproduto" class="java.lang.Integer"/>
+	<field name="estoque_est_min" class="java.lang.Integer"/>
+	<field name="estoque_est" class="java.lang.Integer"/>
+	<field name="estoque_lotefor" class="java.lang.String"/>
+	<field name="estoque_validade" class="java.sql.Date"/>
+	<field name="produto_idproduto" class="java.lang.Integer"/>
+	<field name="produto_produto" class="java.lang.String"/>
+	<field name="produto_coderp" class="java.lang.String"/>
+	<field name="produto_classificacao" class="java.lang.String"/>
+	<field name="produto_armazenamento" class="java.lang.String"/>
+	<field name="produto_est_min" class="java.lang.Integer"/>
+	<group name="produto_produto">
+		<groupExpression><![CDATA[$F{produto_produto}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement x="157" y="19" width="250" height="38" uuid="067c60cc-53ea-4504-8d6a-4ae1eab93a80"/>
+				<textElement>
+					<font fontName="SansSerif" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estoque Por Produto]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="96a66d9c-fce3-4399-b9b6-9be32b2208fe"/>
+				<textElement>
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="-374" y="10" width="67" height="58" uuid="9a3357ef-ac64-4b63-9ce7-2c6631618ec0"/>
+				<imageExpression><![CDATA["Z:\\RRI\\RRI - NEW - 2020\\Projeto_RRI\\src\\viewImagens\\Flora_azul_1.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="0" y="0" width="67" height="58" uuid="0ae25bf2-ff5a-410d-945d-16fd1e622fa1"/>
+				<imageExpression><![CDATA["Z:\\RRI\\RRI - NEW - 2020\\Projeto_RRI\\src\\viewImagens\\Flora_azul_1.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="27" height="20" uuid="a7480421-0a3f-44cc-8051-58b958222633"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CodR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="0" width="44" height="20" uuid="3d98e783-72cb-46de-ad41-582cec5f4307"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[EstMin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="0" width="39" height="20" uuid="dfce8767-6ea2-4102-b8d0-a5e6fe633a28"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lote]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="0" width="100" height="20" uuid="b1df30a5-9bd0-4427-be69-663a760788ea"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Produto/Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="145" y="0" width="54" height="20" uuid="a1866dcd-033c-43f2-a546-f5e0d07a6a63"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CodErp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="207" y="0" width="40" height="20" uuid="6675a820-8ca3-4c93-b11c-b91a9aaf50da"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estoque]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="377" y="1" width="53" height="20" uuid="10206216-af82-4a0c-b529-15603604efa3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Validade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="1" width="100" height="20" uuid="05054901-6573-47c1-9559-999f14905a60"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Classificação]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="27" height="20" uuid="f276ac3c-b356-4b04-9678-25d1a92999f0"/>
+				<textFieldExpression><![CDATA[$F{estoque_idproduto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="208" y="0" width="39" height="20" uuid="2dc4f5ad-710d-4536-9dfa-3975c0efbeb4"/>
+				<textFieldExpression><![CDATA[$F{estoque_est}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="315" y="0" width="39" height="20" uuid="57aa6819-9b3e-4f86-9698-edf0500755b0"/>
+				<textFieldExpression><![CDATA[$F{estoque_lotefor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="0" width="100" height="20" uuid="88e30725-bb69-46ff-adf2-3cdef324da85"/>
+				<textFieldExpression><![CDATA[$F{produto_produto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="143" y="0" width="54" height="20" uuid="f2b45380-4b94-45af-86cf-6f390cf37d46"/>
+				<textFieldExpression><![CDATA[$F{produto_coderp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="262" y="0" width="42" height="20" uuid="f2ab1c3b-b5b3-4030-91ac-44ced2c96ff6"/>
+				<textFieldExpression><![CDATA[$F{estoque_est_min}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="377" y="0" width="53" height="20" uuid="91468034-f1fe-4699-a5cf-253a149df744"/>
+				<textFieldExpression><![CDATA[$F{estoque_validade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="98b77f00-b4be-4e2d-844d-22c68a78f9f9"/>
+				<textFieldExpression><![CDATA[$F{produto_classificacao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="383" y="0" width="100" height="20" uuid="2b219020-af8b-455d-8c15-9530b3902b74"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="496" y="0" width="59" height="20" uuid="d10be185-6cfb-4b7f-9c30-4f502ebe345e"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
