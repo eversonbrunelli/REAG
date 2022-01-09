@@ -195,7 +195,7 @@ public class TelaRelEstProduto extends javax.swing.JFrame {
             filtro.put("idproduto", (jTextFieldIdPro.getText()));
 
             //usando a classe Jasperprint para preparar a impressão
-            JasperPrint imprime = JasperFillManager.fillReport("\\\\fitnt\\compartilhado\\RRI\\REAG - 2020\\src\\relatorios\\Estoque_por_Produto.jasper", filtro, conexao);
+            JasperPrint imprime = JasperFillManager.fillReport("caminho do seu relatorio", filtro, conexao);
             //A linha abaixo exibe o relatório através da classe JasperVieWer
             JasperViewer.viewReport(imprime, false);
 
