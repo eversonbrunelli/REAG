@@ -20,9 +20,9 @@ public class Conexao {
         //a linha abaixo "chama" o driver
         String driver = "com.mysql.jdbc.Driver";
         //Armazenando informações referentes ao banco
-        String url = "jdbc:mysql://10.247.196.15:3306/reag";
-        String user = "admin";
-        String password = "fgn@1803";
+        String url = "jdbc:mysql://Servidor/Banco-de-dados";
+        String user = "usuarioBanco";
+        String password = "SenhaBanco";
         //Estabelecendo a cenexão com o banco
         try {
             Class.forName(driver);

@@ -86,11 +86,11 @@ public class TelaSaida extends javax.swing.JFrame {
 
     private void envia_email_estoque() {
 
-        String meuEmail = "reagente@fit.flora.com.br";
-        String minhaSenha = "J3wMgc57C2e6";
+        String meuEmail = "seu@email";
+        String minhaSenha = "senha";
 
         SimpleEmail email = new SimpleEmail();
-        email.setHostName("correio.flora.com.br");
+        email.setHostName("servidor@email");
         email.setSslSmtpPort("465");
         email.setAuthenticator(new DefaultAuthenticator(meuEmail, minhaSenha));
         email.setSSLOnConnect(true);
@@ -103,7 +103,7 @@ public class TelaSaida extends javax.swing.JFrame {
             email.setFrom(meuEmail);
             email.setSubject("Estoque Minimo Atingido");
             email.setMsg(produto);
-            email.addTo("itajai.qualidade@fit.flora.com.br");
+            email.addTo("lista@email");
             email.send();
             JOptionPane.showMessageDialog(null, "Email de alerta de estoque mínimo enviado!");
 
