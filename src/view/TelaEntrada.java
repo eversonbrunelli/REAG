@@ -211,7 +211,7 @@ public class TelaEntrada extends javax.swing.JFrame {
                                                 Integer.parseInt(identrada));
 
                                         //usando a classe Jasperprint para preparar a impressão    
-                                        JasperPrint imprime = JasperFillManager.fillReport("\\\\fitnt\\compartilhado\\RRI\\REAG - 2020\\src\\relatorios\\Imprime_Entrada_new.jasper", filtro, conexao);
+                                        JasperPrint imprime = JasperFillManager.fillReport("\\\\URLdoRelatorio.jasper", filtro, conexao);
                                         //A linha abaixo exibe o relatório através da classe JasperVieWer
                                         JasperViewer.viewReport(imprime, false);
 
@@ -262,7 +262,7 @@ public class TelaEntrada extends javax.swing.JFrame {
                                                 Integer.parseInt(identrada));
 
                                         //usando a classe Jasperprint para preparar a impressão    
-                                        JasperPrint imprime = JasperFillManager.fillReport("\\\\fitnt\\compartilhado\\RRI\\REAG - 2020\\src\\relatorios\\Imprime_Entrada_new.jasper", filtro, conexao);
+                                        JasperPrint imprime = JasperFillManager.fillReport("\\\\URLdoRelatorio.jasper", filtro, conexao);
                                         //A linha abaixo exibe o relatório através da classe JasperVieWer
                                         JasperViewer.viewReport(imprime, false);
 
@@ -525,7 +525,7 @@ public class TelaEntrada extends javax.swing.JFrame {
                         Integer.parseInt(jTextFieldNrEntrada.getText()));
 
                 //usando a classe Jasperprint para preparar a impressão    
-                JasperPrint imprime = JasperFillManager.fillReport("\\\\fitnt\\compartilhado\\RRI\\REAG - 2020\\src\\relatorios\\Imprime_Entrada_new.jasper", filtro, conexao);
+                JasperPrint imprime = JasperFillManager.fillReport("\\\\URLdoRelatorio.jasper", filtro, conexao);
                 //A linha abaixo exibe o relatório através da classe JasperVieWer
                 JasperViewer.viewReport(imprime, false);
 
